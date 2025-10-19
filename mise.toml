@@ -1,5 +1,6 @@
 [tools]
 pnpm = "latest"
+node = "latest"
 
 [tasks."frontend.install"]
 description="Install all the frontend deps"

@@ -2,8 +2,13 @@
 pnpm = "latest"
 node = "latest"
 
-[tasks."frontend.install"]
+[tasks.install]
 description="Install all the frontend deps"
 run='''
 pnpm install
+'''
+
+[tasks.dev]
+run='''
+pnpm dev
 '''

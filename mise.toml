@@ -1,0 +1,8 @@
+[tools]
+pnpm = "latest"
+
+[tasks."frontend.install"]
+description="Install all the frontend deps"
+run='''
+pnpm install
+'''

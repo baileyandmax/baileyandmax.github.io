@@ -55,6 +55,7 @@
   font-weight: 600;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 0.75rem;
 }
 
@@ -69,6 +70,7 @@
   gap: 2rem;
   margin-bottom: 2rem;
   align-items: flex-start;
+  justify-content: center;
 }
 
 .fund-card {
@@ -543,13 +545,23 @@
     padding: 2rem 1rem;
   }
 
+  .section-title {
+    font-size: 1.75rem;
+    justify-content: center;
+    text-align: center;
+  }
+
   .funds-grid {
-    grid-template-columns: 1fr;
+    display: flex;
+    flex-direction: column;
     gap: 1.5rem;
+    align-items: center;
   }
 
   .fund-card {
     padding: 1.5rem;
+    width: 100%;
+    max-width: 500px;
   }
 
   .fund-title {
@@ -578,6 +590,18 @@
 
   .header {
     padding: 2rem 1rem;
+  }
+
+  .section-title {
+    font-size: 1.5rem;
+  }
+
+  .section-emoji {
+    font-size: 2rem;
+  }
+
+  .fund-card {
+    max-width: 100%;
   }
 
   .fund-title {

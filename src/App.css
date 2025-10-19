@@ -40,11 +40,35 @@
   width: 100%;
 }
 
+.registry-section {
+  margin-bottom: 4rem;
+}
+
+.registry-section:last-child {
+  margin-bottom: 2rem;
+}
+
+.section-title {
+  font-size: 2rem;
+  color: #334155;
+  margin: 0 0 2rem 0;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.section-emoji {
+  font-size: 2.5rem;
+  line-height: 1;
+}
+
 .funds-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  display: flex;
+  flex-wrap: wrap;
   gap: 2rem;
   margin-bottom: 2rem;
+  align-items: flex-start;
 }
 
 .fund-card {
@@ -54,6 +78,8 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07), 0 2px 4px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   border: 1px solid rgba(0, 0, 0, 0.05);
+  flex: 0 1 calc(33.333% - 1.5rem);
+  min-width: 320px;
 }
 
 .fund-card:hover {
@@ -155,73 +181,335 @@
 }
 
 .payment-method {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  margin-bottom: 0.75rem;
+  margin-bottom: 1rem;
   background: #f8fafc;
   border-radius: 12px;
   border: 1px solid #e2e8f0;
-  transition: background-color 0.2s ease;
+  transition: all 0.2s ease;
+  overflow: hidden;
 }
 
 .payment-method:hover {
-  background: #f1f5f9;
+  border-color: #cbd5e1;
 }
 
 .payment-method:last-child {
   margin-bottom: 0;
 }
 
-.payment-info {
+.payment-header-button {
+  width: 100%;
+  padding: 1.25rem;
+  background: transparent;
+  border: none;
+  cursor: pointer;
   display: flex;
   align-items: center;
-  gap: 1rem;
-  flex: 1;
-  min-width: 0;
+  justify-content: space-between;
+  transition: background-color 0.2s ease;
+}
+
+.payment-header-button:hover {
+  background: #f1f5f9;
+}
+
+.payment-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
 }
 
 .payment-icon {
+  font-size: 1.75rem;
+}
+
+.payment-type {
+  color: #334155;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.payment-toggle-icon {
   font-size: 1.5rem;
-  flex-shrink: 0;
+  color: #667eea;
+  font-weight: bold;
+  line-height: 1;
+}
+
+.payment-content {
+  padding: 1.25rem 1.25rem 1.25rem 1.25rem;
+  animation: expandDown 0.3s ease;
+}
+
+@keyframes expandDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .payment-details {
   display: flex;
   flex-direction: column;
-  gap: 0.25rem;
-  min-width: 0;
+  gap: 1.25rem;
 }
 
-.payment-details strong {
-  color: #334155;
+.payment-detail-row {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+.payment-label {
+  display: block;
+  font-size: 0.75rem;
+  color: #64748b;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin: 0 0 0.4rem 0;
+}
+
+.payment-value {
+  display: block;
+  color: #1e293b;
+  font-size: 0.95rem;
+  word-break: break-all;
+  margin: 0;
+  line-height: 1.4;
+}
+
+.inline-copyable {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+  max-width: 100%;
+}
+
+.copyable-code {
+  display: inline-block;
+  font-family: ui-monospace, 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
+  font-size: 0.8rem;
+  color: #1e293b;
+  word-break: break-all;
+  line-height: 1.5;
+  max-width: 100%;
+  overflow-wrap: break-word;
+}
+
+.copy-btn-inline {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.25rem;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  color: #656d76;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+}
+
+.copy-btn-inline:hover {
+  background: #f6f8fa;
+  border-color: #d0d7de;
+  color: #1f2328;
+}
+
+.copy-btn-inline:active {
+  background: #eaeef2;
+}
+
+.copy-btn-inline svg {
+  display: block;
+}
+
+.payment-instructions {
+  margin-top: 0.25rem;
+  padding: 1rem;
+  background: white;
+  border-radius: 8px;
+  border-left: 3px solid #667eea;
+}
+
+.payment-instructions p {
+  margin: 0;
   font-size: 0.875rem;
+  color: #475569;
+  line-height: 1.5;
+}
+
+.copy-button-small {
+  padding: 0.4rem 0.6rem;
+  font-size: 1rem;
+  background: white;
+  border: 1px solid #e2e8f0;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.copy-button-small:hover {
+  background: #667eea;
+  color: white;
+  border-color: #667eea;
+}
+
+.payment-value-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  justify-content: space-between;
 }
 
 .payment-value {
   color: #64748b;
   font-size: 0.875rem;
   word-break: break-all;
+  flex: 1;
 }
 
-.copy-button {
+.qr-button {
+  margin-top: 0.5rem;
   padding: 0.5rem 1rem;
   font-size: 0.875rem;
-  font-weight: 600;
   color: #667eea;
   background: white;
-  border: 2px solid #667eea;
+  border: 1px solid #667eea;
   border-radius: 8px;
   cursor: pointer;
   transition: all 0.2s ease;
-  white-space: nowrap;
+  font-weight: 500;
+}
+
+.qr-button:hover {
+  background: #667eea;
+  color: white;
+}
+
+.qr-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  padding: 1rem;
+  animation: fadeIn 0.2s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.qr-modal {
+  background: white;
+  border-radius: 16px;
+  padding: 2rem;
+  max-width: 400px;
+  width: 100%;
+  position: relative;
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  animation: slideUp 0.3s ease;
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.qr-close {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: transparent;
+  border: none;
+  font-size: 2rem;
+  color: #64748b;
+  cursor: pointer;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  line-height: 1;
+  padding: 0;
+}
+
+.qr-close:hover {
+  background: #f1f5f9;
+  color: #334155;
+}
+
+.qr-modal h3 {
+  margin: 0 0 1.5rem 0;
+  color: #334155;
+  text-align: center;
+}
+
+.qr-code {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  border: 2px solid #e2e8f0;
+  display: block;
+}
+
+.qr-instruction {
+  margin: 1rem 0 0 0;
+  text-align: center;
+  color: #64748b;
+  font-size: 0.875rem;
+}
+
+.copy-button {
+  padding: 0.5rem;
+  font-size: 1.25rem;
+  background: transparent;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.2s ease;
   flex-shrink: 0;
+  line-height: 1;
+  opacity: 0.6;
 }
 
 .copy-button:hover {
-  background: #667eea;
-  color: white;
+  opacity: 1;
+  background: rgba(102, 126, 234, 0.1);
+}
+
+.stripe-button-container {
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem 0;
 }
 
 .footer {
